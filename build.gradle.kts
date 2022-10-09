@@ -1,3 +1,4 @@
+import Build_gradle.DependencyVersions.KOTLIN_LOGGING_VERSION
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -22,6 +23,10 @@ repositories {
     mavenCentral()
 }
 
+object DependencyVersions {
+    const val KOTLIN_LOGGING_VERSION = "2.1.20"
+}
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-batch")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -32,6 +37,8 @@ dependencies {
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.batch:spring-batch-test")
+
+    implementation("io.github.microutils:kotlin-logging-jvm:$KOTLIN_LOGGING_VERSION")
 }
 
 tasks.withType<KotlinCompile> {
