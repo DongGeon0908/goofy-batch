@@ -10,7 +10,8 @@ class ItemService(
     private val itemRepository: ItemRepository
 ) {
     @Transactional
-    fun save(name: String) {
-        itemRepository.save(Item(name = name))
+    fun save(name: String): Item {
+        val random = (1..10).random()
+        return itemRepository.save(Item(name = name + random))
     }
 }
